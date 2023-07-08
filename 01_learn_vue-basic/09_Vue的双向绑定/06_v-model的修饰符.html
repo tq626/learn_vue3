@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <!-- 1.lazy: 绑定change事件 -->
+       <h2>{{message}}</h2>
+       <input type="text" v-model.lazy="message">
+
+       <!-- 2.number: 自动将内容转换成数字 -->
+       <h2>{{score}}-{{typeof score}}</h2>
+       <input type="text" v-model.number="score">
+
+       <h2>{{score}}</h2>
+       <input type="number" v-model="score">
+
+       <!-- 3.trim: 去除首尾的空格 -->
+       <h2>{{content}}</h2>
+       <input type="text" v-model.trim="content">
+
+
+       <!-- 使用多个修饰符 -->
+       <h2>{{content}}</h2>
+       <input type="text" v-model.lazy.trim="content">
+    </div>
+    
+    <script src="../lib/vue.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                    message:"Hellow World",
+                    score: 12,
+                    content: "222 "
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

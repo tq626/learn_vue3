@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <h2 :name="name" :age="age" :height="height">{{message}}</h2>
+
+       <!-- 直接绑定对象 -->
+       <h2 v-bind="props">{{message}}</h2>
+    </div>
+    
+    <script src="../lib/vue.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                    message:"Hellow World",
+                    props: { name: "tq", age: 18, height: 1.88},
+                    name: "kobe",
+                    age: 38,
+                    height: 1.88
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

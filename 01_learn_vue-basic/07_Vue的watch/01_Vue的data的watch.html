@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <h2>{{message}}</h2>
+       <button @click="changeMessage">按钮</button>
+    </div>
+    
+    <script src="../lib/vue.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                    message:"Hellow World",
+                    info: { name: "tq", age: 18 }
+                }
+            },
+            methods: {
+              changeMessage(){
+                this.message = "tq"
+                this.info = { name: "kobe" }
+              }
+            },
+            watch:{
+              message(newValue, oldValue) {
+                console.log("newValue:",newValue)
+              },
+              info(newValue, oldValue) {
+                // 如果是对象类型,那么拿到的就是代理对象
+                console.log(newValue, oldValue)
+
+                // 获取原生对象
+                console.log(Vue.toRaw(newValue))
+              }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

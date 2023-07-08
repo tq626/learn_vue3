@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <h2>{{message}}</h2>
+
+       <div class="gender">
+        <label for="male">
+          <input type="radio" id="male" v-model="gender" name="gender" value="male"> 男
+        </label>
+        <label for="female">
+          <input type="radio" id="female" v-model="gender" name="gender" value="female"> 女
+        </label>
+
+        <h2>{{gender}}</h2>
+       </div>
+    </div>
+    
+    <script src="../lib/vue.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                    message:"Hellow World",
+                    gender: ''
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .active{
+        color: skyblue;
+      }
+      .bgc{
+        background-color: pink;
+      }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <h2>{{message}}</h2>
+
+       <!-- <button :class=" isActive ? 'active' : '' " @click="btnClick">我是按钮</button> -->
+
+       <!-- 对象的基本用法 -->
+       <button :class="{active: isActive, bgc: isBgc }" @click="btnClick">我是按钮</button>
+
+       <!-- 数组的基本用法 -->
+       <button :class="['abc', 'cba']">按钮</button>
+       <button :class="['abc', className]">按钮</button>
+    </div>
+    
+    <script src="../lib/vue.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                    message:"Hellow World",
+                    isActive: false,
+                    isBgc: false,
+                    className: "nba"
+                }
+            },
+            methods: {
+              btnClick() {
+                this.isActive = !this.isActive
+                this.isBgc = !this.isBgc
+              }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

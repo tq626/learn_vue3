@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .box{
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <h2>{{message}}</h2>
+       <div class="box" @click="divClick">
+         <button @click.stop="btnClick">按钮</button>
+       </div>
+    </div>
+    
+    <script src="../lib/vue.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                    message:"Hellow World"
+                }
+            },
+            methods: {
+              btnClick() {
+              console.log("btnClick")
+              },
+              divClick() {
+              console.log("divClick")
+              }
+            },
+            
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

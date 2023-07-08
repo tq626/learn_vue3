@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <h2>{{counter}}</h2>
+       <button @click="add">按钮</button>
+
+       <div class="box" @click="handlerClick" @mousemove="mousemove"></div>
+    </div>
+    
+    <script src="../lib/vue.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                    message:"Hellow World",
+                    counter: 0
+                }
+            },
+            methods:{
+              add() {
+                this.counter++
+              },
+              handlerClick() {
+                console.log("点击了div")
+              },
+              mousemove() {
+                console.log("移动了鼠标")
+              }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

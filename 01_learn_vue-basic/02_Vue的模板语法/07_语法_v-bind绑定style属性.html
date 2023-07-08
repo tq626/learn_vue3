@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <!-- 普通的html写法 -->
+       <h2 style="color: skyblue; font-size: 20px;">{{message}}</h2>
+
+       <!-- 动态绑定style,后面跟上对象类型 对象类型就是javaScript中的对象 属性支持驼峰写法 如果属性有'-'链接则必须加引号 "-->
+       <h2 :style="{color: color, 'font-size': fontSize + 'px'}">{{message}}</h2>
+
+       <!-- 动态绑定,这个属性是 一个对象 -->
+       <h2 :style="objStyle">{{message}}</h2>
+
+       <!-- style的数组语法 -->
+       <h2 :style="[objStyle, {backgroundColor: 'skyblue'}]">{{message}}</h2>
+    </div>
+    
+    <script src="../lib/vue.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                    message:"Hellow World",
+                    color: "skyblue",
+                    fontSize: 40,
+                    objStyle: {
+                      fontSize: '50px',
+                      color: 'pink'
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
